@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% from "macros.html" import section_heading, project_card %}
+
+{% block title %}Soban Khan — Python Developer & Data Analyst{% endblock %}
+{% block meta_description %}Explore the Python development, data analysis skills, and clearly labeled practice projects of Soban Khan.{% endblock %}
+
+{% block content %}
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid container">
+      <div class="hero-copy">
+        <div class="availability"><span class="status-dot"></span> PYTHON · DATA · VISUALIZATION</div>
+        <h1 id="hero-title">Turning data<br>into <span class="accent-text">direction.</span></h1>
+        <p class="hero-intro">I build practical solutions with Python and data analytics—transforming raw data into meaningful insights and useful visual reports.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">View projects <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-caption"><span class="caption-line"></span>Thoughtful analysis. Practical code.</div>
+      </div>
+      <div class="hero-art" aria-label="Abstract data visualization">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-core"><span>SK</span><i></i></div>
+        <div class="art-node node-one"><span class="node-label">PY</span></div>
+        <div class="art-node node-two"><span class="node-label">DATA</span></div>
+        <div class="art-node node-three"><span class="node-label">BI</span></div>
+        <div class="art-coordinate">01 / ANALYZE<br>02 / BUILD<br>03 / SHARE</div>
+        <div class="art-crosshair crosshair-one">+</div>
+        <div class="art-crosshair crosshair-two">+</div>
+      </div>
+    </div>
+    <div class="hero-bottom container">
+      <span>INDEPENDENT PRACTICE &amp; LEARNING</span>
+      <a href="#about">Scroll to explore <span aria-hidden="true">↓</span></a>
+      <span>01 — 05</span>
+    </div>
+  </section>
+
+  <section class="about-section section-pad" id="about">
+    <div class="container about-layout">
+      {{ section_heading("01", "A LITTLE ABOUT ME", "Curiosity, meet clarity.") }}
+      <div class="about-copy">
+        <p class="about-lead">I’m Soban Khan, a Python developer and data analyst who enjoys making information easier to understand and use.</p>
+        <p>I’m interested in the full path from raw data to useful output: cleaning and exploring data, finding patterns worth investigating, and communicating them through clear visual reports. I build practice projects to strengthen these skills and learn by making.</p>
+        <p>This portfolio shares selected learning work. Dashboard projects are practice projects—not commercial client engagements or claims of verified business impact.</p>
+        <a class="text-link" href="#projects">See what I’m building <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section section-pad" id="skills">
+    <div class="container">
+      {{ section_heading("02", "TOOLS & CAPABILITIES", "A practical toolkit.", "Skills I’m using and developing through hands-on projects.") }}
+      <div class="skills-grid">
+        {% for group in skill_groups %}
+          <article class="skill-group">
+            <div class="skill-group-top"><span class="skill-count">0{{ loop.index }}</span><span class="skill-mark" aria-hidden="true">↗</span></div>
+            <h3>{{ group.name }}</h3>
+            <ul class="skill-list">
+              {% for skill in group.skills %}
+                <li>{{ skill }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section section-pad" id="projects">
+    <div class="container">
+      <div class="projects-heading-row">
+        {{ section_heading("03", "SELECTED PRACTICE", "Learning through projects.", "Power BI dashboard practice projects exploring sales, products, and profitability.") }}
+        <span class="practice-note"><span class="status-dot"></span> ALL PROJECTS ARE PRACTICE WORK</span>
+      </div>
+      <div class="projects-grid">
+        {% for project in projects %}
+          {{ project_card(project, loop.index) }}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section section-pad" id="services">
+    <div class="container services-layout">
+      <div class="services-intro">
+        {{ section_heading("04", "HOW I CAN HELP", "Useful work, built with care.") }}
+        <p>These are services I’m developing and can offer. Let’s talk about your needs and whether the fit is right.</p>
+        <a class="text-link" href="#contact">Start a conversation <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="service-list">
+        {% for service in services %}
+          <li><span class="service-number">0{{ loop.index }}</span><span>{{ service }}</span><span class="service-arrow" aria-hidden="true">↗</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact-section section-pad" id="contact">
+    <div class="container contact-panel">
+      <div class="contact-topline"><span>05 / CONTACT</span><span>OPEN TO A CONVERSATION</span></div>
+      <div class="contact-content">
+        <div>
+          <p class="contact-eyebrow">Have a project in mind?</p>
+          <h2>Let’s make<br><span class="accent-text">something useful.</span></h2>
+        </div>
+        <div class="contact-details">
+          <a class="contact-email" href="mailto:{{ email_address }}">{{ email_address }} <span aria-hidden="true">↗</span></a>
+          <a class="contact-github" href="{{ github_url }}" target="_blank" rel="noopener noreferrer">Find me on GitHub <span aria-hidden="true">↗</span></a>
+          <p>No contact form here—email opens your mail app directly.</p>
+        </div>
+      </div>
+      <div class="contact-decoration" aria-hidden="true">SK<span>.</span></div>
+    </div>
+  </section>
+{% endblock %}

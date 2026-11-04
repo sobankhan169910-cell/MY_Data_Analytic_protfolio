@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111312">
+  <meta name="description" content="{% block meta_description %}Python development and data analytics portfolio of Soban Khan.{% endblock %}">
+  <title>{% block title %}Soban Khan — Python Developer & Data Analyst{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="{{ url_for('home') }}" aria-label="Soban Khan home">
+        <span class="wordmark-mark">S<span>.</span></span>
+        <span class="wordmark-name">Soban Khan</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+        <a href="{{ url_for('home') }}#about">About</a>
+        <a href="{{ url_for('home') }}#skills">Skills</a>
+        <a href="{{ url_for('home') }}#projects">Projects</a>
+        <a href="{{ url_for('home') }}#services">Services</a>
+        <a class="nav-contact" href="{{ url_for('home') }}#contact">Get in touch <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <a class="wordmark footer-wordmark" href="{{ url_for('home') }}">
+        <span class="wordmark-mark">S<span>.</span></span>
+        <span class="wordmark-name">Soban Khan</span>
+      </a>
+      <p>Data Analyst <span aria-hidden="true">·</span> Python Developer</p>
+      <div class="footer-links">
+        <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="mailto:{{ email_address }}">Email <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© {{ current_year }} Soban Khan</span>
+      <span>Made with curiosity &amp; Python</span>
+    </div>
+  </footer>
+</body>
+</html>
