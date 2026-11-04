@@ -55,7 +55,7 @@ Python 3.9 or newer is recommended.
    py app.py
    ```
 
-4. Open SKFastAnalytics.pythonanywhere.com.
+4. Open [Website](https://SKFastAnalytics.pythonanywhere.com).'
 
 The server listens on port `5000` and all network interfaces by default, so a phone on the same Wi-Fi can also connect using the computer's local IP address, for example `http://192.168.1.10:5000/`. Windows Firewall may ask permission for Python; allow access only on a trusted private network. Override the defaults with the `HOST` and `PORT` environment variables. Debug mode is off by default; set `FLASK_DEBUG=1` only during local development.
 
