@@ -15,12 +15,14 @@ A responsive portfolio built with Python, Flask, Jinja2, HTML, CSS, and vanilla 
 │   └── macros.html           # Reusable section heading and project card
 └── static/
     ├── css/style.css         # Responsive visual design
-    ├── js/main.js            # Accessible mobile navigation
-    ├── images/               # Optional dashboard screenshots
+    ├── js/main.js            # Accessible navigation and scroll reveals
+    ├── images/               # Profile portrait and dashboard screenshots
     └── pdfs/                 # Original dashboard PDFs embedded on project pages
 ```
 
 `app.py` owns the two public routes (`/` and `/projects/<slug>`) and the content data rendered by Jinja. The project detail route looks up a known project and returns a 404 for an unknown slug. `base.html` supplies shared metadata, navigation, and footer; `macros.html` avoids duplicating repeated headings and cards. Static assets are kept separate from templates.
+
+The homepage toolkit scrolls horizontally on smaller screens. Its animated bars represent the number of listed skills in each group, not proficiency ratings; the overview counters are derived from the project, skill, and service data in `app.py`. Scroll effects respect the visitor's reduced-motion preference.
 
 ## Dashboard PDFs
 
@@ -32,6 +34,8 @@ The supplied original PDFs and their rendered dashboard previews are included:
 - `static/images/superstore-dashboard.png` — preview rendered from that PDF
 
 The project cards show the dashboard previews. Each project detail page displays its preview directly for compatibility across desktop and mobile browsers, and links to open the original PDF in a new tab. The UnitPrice dashboard is not included.
+
+The homepage profile portrait is served from `static/images/profile.png`.
 ## Run locally
 
 Python 3.9 or newer is recommended.

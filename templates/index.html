@@ -5,40 +5,46 @@
 {% block meta_description %}Explore the Python development, data analysis skills, and clearly labeled practice projects of Soban Khan.{% endblock %}
 
 {% block content %}
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" id="home" aria-labelledby="hero-title">
     <div class="hero-grid container">
       <div class="hero-copy">
-        <div class="availability"><span class="status-dot"></span> PYTHON · DATA · VISUALIZATION</div>
-        <h1 id="hero-title">Turning data<br>into <span class="accent-text">direction.</span></h1>
-        <p class="hero-intro">I build practical solutions with Python and data analytics—transforming raw data into meaningful insights and useful visual reports.</p>
+        <div class="availability"><span class="status-dot"></span> PYTHON DEVELOPER · DATA ANALYST</div>
+        <p class="hero-greeting">Hello, I’m</p>
+        <h1 id="hero-title">Soban <span class="accent-text">Khan.</span></h1>
+        <p class="hero-role">Python Developer <span aria-hidden="true">&amp;</span> Data Analyst</p>
+        <p class="hero-intro">I turn raw data into clear insights, useful visual reports, and practical tools with Python and data analytics.</p>
+        <div class="hero-socials" aria-label="Social and contact links">
+          <a class="social-link" href="{{ github_url }}" target="_blank" rel="noopener noreferrer" aria-label="Soban Khan on GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.64-1.24-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 .1.99 1.83 3.15 1.38.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.16-3-.12-.29-.5-1.43.11-2.97 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.04-1.15 3.04-1.15.61 1.54.23 2.68.12 2.97.72.78 1.15 1.78 1.15 3.01 0 4.29-2.61 5.23-5.1 5.5.4.35.75 1.03.75 2.08V22c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
+          </a>
+          <a class="social-link" href="mailto:{{ email_address }}" aria-label="Email Soban Khan">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5.5h17a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 17V7a1.5 1.5 0 0 1 1.5-1.5Zm.1 2 8.4 6.1 8.4-6.1"/><path d="m3 17 6.2-5m11.8 5-6.2-5"/></svg>
+          </a>
+        </div>
         <div class="hero-actions">
           <a class="button button-primary" href="#projects">View projects <span aria-hidden="true">↓</span></a>
           <a class="button button-secondary" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-caption"><span class="caption-line"></span>Thoughtful analysis. Practical code.</div>
       </div>
-      <div class="hero-art" aria-label="Abstract data visualization">
-        <div class="art-orbit orbit-one"></div>
-        <div class="art-orbit orbit-two"></div>
-        <div class="art-core"><span>SK</span><i></i></div>
-        <div class="art-node node-one"><span class="node-label">PY</span></div>
-        <div class="art-node node-two"><span class="node-label">DATA</span></div>
-        <div class="art-node node-three"><span class="node-label">BI</span></div>
-        <div class="art-coordinate">01 / ANALYZE<br>02 / BUILD<br>03 / SHARE</div>
-        <div class="art-crosshair crosshair-one">+</div>
-        <div class="art-crosshair crosshair-two">+</div>
+      <div class="hero-profile" data-parallax>
+        {% if profile_image_available %}
+          <img class="profile-image" src="{{ url_for('static', filename='images/profile.png') }}" alt="Soban Khan">
+        {% else %}
+          <div class="profile-placeholder" role="img" aria-label="Profile image placeholder for Soban Khan">SK</div>
+        {% endif %}
+        <span class="profile-caption">PYTHON · DATA · VISUALIZATION</span>
       </div>
     </div>
-    <div class="hero-bottom container">
-      <span>INDEPENDENT PRACTICE &amp; LEARNING</span>
-      <a href="#about">Scroll to explore <span aria-hidden="true">↓</span></a>
-      <span>01 — 05</span>
+    <div class="hero-stats container" aria-label="Portfolio overview">
+      <div class="hero-stat"><span class="stat-value" data-count="{{ projects|length }}">{{ projects|length }}</span><span>Practice projects</span></div>
+      <div class="hero-stat"><span class="stat-value" data-count="{{ skill_count }}">{{ skill_count }}</span><span>Skills in my toolkit</span></div>
+      <div class="hero-stat"><span class="stat-value" data-count="{{ services|length }}">{{ services|length }}</span><span>Areas of practice</span></div>
     </div>
   </section>
 
   <section class="about-section section-pad" id="about">
     <div class="container about-layout">
-      {{ section_heading("01", "A LITTLE ABOUT ME", "Curiosity, meet clarity.") }}
+      {{ section_heading("ABOUT ME", "Curiosity, meet clarity.") }}
       <div class="about-copy">
         <p class="about-lead">I’m Soban Khan, a Python developer and data analyst who enjoys making information easier to understand and use.</p>
         <p>I’m interested in the full path from raw data to useful output: cleaning and exploring data, finding patterns worth investigating, and communicating them through clear visual reports. I build practice projects to strengthen these skills and learn by making.</p>
@@ -50,17 +56,24 @@
 
   <section class="skills-section section-pad" id="skills">
     <div class="container">
-      {{ section_heading("02", "TOOLS & CAPABILITIES", "A practical toolkit.", "Skills I’m using and developing through hands-on projects.") }}
-      <div class="skills-grid">
+      {{ section_heading("MY SKILLS", "A practical toolkit.", "Technologies and capabilities I’m practicing through hands-on projects.") }}
+      <div class="skills-grid" aria-label="Horizontally scrollable toolkit categories">
         {% for group in skill_groups %}
-          <article class="skill-group">
-            <div class="skill-group-top"><span class="skill-count">0{{ loop.index }}</span><span class="skill-mark" aria-hidden="true">↗</span></div>
+          <article class="skill-group reveal-on-scroll">
+            <div class="skill-group-top">
+              <span class="skill-icon" aria-hidden="true">{% if loop.index == 1 %}&lt;/&gt;{% elif loop.index == 2 %}01{% elif loop.index == 3 %}▥{% else %}↗{% endif %}</span>
+              <span class="skill-mark" aria-hidden="true">↗</span>
+            </div>
             <h3>{{ group.name }}</h3>
             <ul class="skill-list">
               {% for skill in group.skills %}
-                <li>{{ skill }}</li>
+                <li><span class="skill-item-icon" aria-hidden="true">{{ skill[0] }}</span>{{ skill }}</li>
               {% endfor %}
             </ul>
+            <div class="skill-progress-label"><span>Skills in this group</span><span>{{ group.skills|length }}</span></div>
+            <div class="skill-progress" role="img" aria-label="{{ group.skills|length }} skills in {{ group.name }}">
+              <span style="--progress: {{ (group.skills|length / max_skill_group_size * 100)|round|int }}%"></span>
+            </div>
           </article>
         {% endfor %}
       </div>
@@ -70,7 +83,7 @@
   <section class="projects-section section-pad" id="projects">
     <div class="container">
       <div class="projects-heading-row">
-        {{ section_heading("03", "SELECTED PRACTICE", "Learning through projects.", "Power BI dashboard practice projects exploring sales, products, and profitability.") }}
+        {{ section_heading("SELECTED PROJECTS", "Learning through projects.", "Power BI dashboard practice projects exploring sales, products, and profitability.") }}
         <span class="practice-note"><span class="status-dot"></span> ALL PROJECTS ARE PRACTICE WORK</span>
       </div>
       <div class="projects-grid">
@@ -84,13 +97,13 @@
   <section class="services-section section-pad" id="services">
     <div class="container services-layout">
       <div class="services-intro">
-        {{ section_heading("04", "HOW I CAN HELP", "Useful work, built with care.") }}
+        {{ section_heading("SERVICES", "Useful work, built with care.") }}
         <p>These are services I’m developing and can offer. Let’s talk about your needs and whether the fit is right.</p>
         <a class="text-link" href="#contact">Start a conversation <span aria-hidden="true">→</span></a>
       </div>
       <ul class="service-list">
         {% for service in services %}
-          <li><span class="service-number">0{{ loop.index }}</span><span>{{ service }}</span><span class="service-arrow" aria-hidden="true">↗</span></li>
+          <li class="service-card reveal-on-scroll"><span class="service-icon" aria-hidden="true">↗</span><span>{{ service }}</span></li>
         {% endfor %}
       </ul>
     </div>
@@ -98,7 +111,7 @@
 
   <section class="contact-section section-pad" id="contact">
     <div class="container contact-panel">
-      <div class="contact-topline"><span>05 / CONTACT</span><span>OPEN TO A CONVERSATION</span></div>
+      <div class="contact-topline"><span>CONTACT</span><span>OPEN TO A CONVERSATION</span></div>
       <div class="contact-content">
         <div>
           <p class="contact-eyebrow">Have a project in mind?</p>

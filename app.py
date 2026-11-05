@@ -128,7 +128,10 @@ def home():
         "index.html",
         projects=projects,
         skill_groups=SKILL_GROUPS,
+        skill_count=sum(len(group["skills"]) for group in SKILL_GROUPS),
+        max_skill_group_size=max(len(group["skills"]) for group in SKILL_GROUPS),
         services=SERVICES,
+        profile_image_available=(image_directory / "profile.png").is_file(),
     )
 
 
