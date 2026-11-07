@@ -17,7 +17,7 @@
           <a class="social-link" href="{{ github_url }}" target="_blank" rel="noopener noreferrer" aria-label="Soban Khan on GitHub">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.64-1.24-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 .1.99 1.83 3.15 1.38.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.16-3-.12-.29-.5-1.43.11-2.97 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.04-1.15 3.04-1.15.61 1.54.23 2.68.12 2.97.72.78 1.15 1.78 1.15 3.01 0 4.29-2.61 5.23-5.1 5.5.4.35.75 1.03.75 2.08V22c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
           </a>
-          <a class="social-link" href="mailto:{{ email_address }}" aria-label="Email Soban Khan">
+          <a class="social-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ email_address|urlencode }}" target="_blank" rel="noopener noreferrer" aria-label="Compose email to Soban Khan in Gmail">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5.5h17a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 17V7a1.5 1.5 0 0 1 1.5-1.5Zm.1 2 8.4 6.1 8.4-6.1"/><path d="m3 17 6.2-5m11.8 5-6.2-5"/></svg>
           </a>
         </div>
@@ -103,7 +103,7 @@
       </div>
       <ul class="service-list">
         {% for service in services %}
-          <li class="service-card reveal-on-scroll"><span class="service-icon" aria-hidden="true">↗</span><span>{{ service }}</span></li>
+          <li class="service-card reveal-on-scroll"><a href="#contact"><span class="service-icon" aria-hidden="true">↗</span><span>{{ service }}</span></a></li>
         {% endfor %}
       </ul>
     </div>
@@ -118,9 +118,10 @@
           <h2>Let’s make<br><span class="accent-text">something useful.</span></h2>
         </div>
         <div class="contact-details">
-          <a class="contact-email" href="mailto:{{ email_address }}">{{ email_address }} <span aria-hidden="true">↗</span></a>
+          <a class="contact-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ email_address|urlencode }}" target="_blank" rel="noopener noreferrer">{{ email_address }} <span aria-hidden="true">↗</span></a>
+          <a class="contact-github" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">WhatsApp: {{ whatsapp_number }} <span aria-hidden="true">↗</span></a>
           <a class="contact-github" href="{{ github_url }}" target="_blank" rel="noopener noreferrer">Find me on GitHub <span aria-hidden="true">↗</span></a>
-          <p>No contact form here—email opens your mail app directly.</p>
+          <p>Email opens a Gmail compose window; WhatsApp opens a chat.</p>
         </div>
       </div>
       <div class="contact-decoration" aria-hidden="true">SK<span>.</span></div>

@@ -110,6 +110,8 @@ def inject_site_details():
         "current_year": datetime.now().year,
         "github_url": "https://github.com/sobankhan169910-cell",
         "email_address": "sobankbai@gmail.com",
+        "whatsapp_number": "03555282740",
+        "whatsapp_url": "https://wa.me/923555282740",
     }
 
 
